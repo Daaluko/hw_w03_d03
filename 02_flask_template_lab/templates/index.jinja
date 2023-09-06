@@ -1,15 +1,14 @@
-<html>
-    <head>
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <h1>{{ title }}</h1>
-        <ul>
-          {% for event in events %}  
-            <li>
-              {{ event.name }}: <b>{{ event.date }}</b>
-            </li>
-          {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.jinja" %} {% block content %}
+  <h1>{{ title }}</h1>
+  <form action="/events" method="post">
+    <label for="date"> Date </label>
+    <input type="text" name="date" id="date"/>
+    <label for="name"> Name </label></form>  
+    <ul>
+      {% for event in events %}  
+        <li>
+          {{ event.name }}: <b>{{ event.date }}</b>
+        </li>
+      {% endfor %}
+    </ul>
+          {% endblock%}
